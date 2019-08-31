@@ -34,7 +34,9 @@ Redis легок в инсталяции и весит всего 500кб, и с
 То есть мы можем выбрать значения которые нам нужны подобным образом:
 ```redisContext
        .fromRedisKV(df.select("key").rdd.map(r=>r.getString(0)).collect())
-       .toDF("key", "value")```
+       .toDF("key", "value")
+```
+
 А затем быстро сджоинить 1к1 + Narrow Dependency.
 
 Попробуем провернуть тоже самое в Ignite:
